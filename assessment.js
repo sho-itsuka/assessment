@@ -25,9 +25,23 @@ const answers = [
  */
 
 function assessment(userName) {
-  //TODO 診断処理を実装する
-  return '';
+  // 全文字のコード番号を取得してそれを足し合わせる
+  let sumOfCharCode = 0;
+  for (let i = 0; i < userName.length; i++) {
+    sumOfCharCode = sumOfCharCode + userName.charCodeAt(i);
+  }
+
+  // 文字のコード番号の合計を回答の数で割って添字の数値を求める
+  const index = sumOfCharCode % answers.length;
+  const result = answers[index];
+
+  // TODO {userName} をユーザの名前に置き換える
+  return result;
 }
+
+console.log(assessment('太郎'));
+console.log(assessment('次郎'));
+console.log(assessment('太郎'));
 
 
 /*
