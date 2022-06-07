@@ -25,15 +25,17 @@ assessmentButton.onclick = () => {
   // ツイートエリアの作成
   tweetDivided.innerText = '';
   const anchor = document.createElement('a');
-  const hrefValue ='https://twitter.com/intent/tweet?button_hashtag=あなたのいいところ&ref_src=twsrc%5Etfw';
+  const hrefValue =
+    'https://twitter.com/intent/tweet?button_hashtag=' +
+    encodeURIComponent('あなたのいいところ') +
+    '&ref_src=twsrc%5Etfw';
   anchor.setAttribute('href', hrefValue);
   anchor.setAttribute('class', 'twitter-hashtag-button');
-  anchor.setAttribute('data-text', '診断結果の文章');
+  anchor.setAttribute('data-text', result);
   anchor.innerText = 'Tweet #あなたのいいところ';
-
   tweetDivided.appendChild(anchor);
 
-  // widgets.jsが作動し、ただのリンクで表示されていた部分が、Twitterのボタンのような見た目になる
+  // widgets.js の設定(widgets.jsが作動し、ただのリンクで表示されていた部分が、Twitterのボタンのような見た目になる)
   const script = document.createElement('script');
   script.setAttribute('src', 'https://platform.twitter.com/widgets.js');
   tweetDivided.appendChild(script);
@@ -75,6 +77,7 @@ function assessment(userName) {
   // 文字のコード番号の合計を回答の数で割って添字の数値を求める
   const index = sumOfCharCode % answers.length;
   let result = answers[index];
+  
   result = result.replaceAll('{userName}', userName);
   return result;
 }
