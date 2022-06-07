@@ -10,8 +10,18 @@ assessmentButton.onclick = () => {
     // 名前が空の時は処理を終了する
     return;
   }
-  console.log(userName);
-  //TODO 診断結果表示エリアの作成
+
+  // 診断結果表示エリアの作成
+  resultDivided.innerText = '';  // 診断結果表示エリアの子要素を全削除する、という動作
+  const header = document.createElement('h3');
+  header.innerText = '診断結果';
+  resultDivided.appendChild(header);
+  
+  const paragraph = document.createElement('p');
+  const result = assessment(userName);
+  paragraph.innerText = result;
+  resultDivided.appendChild(paragraph);
+
   //TODO ツイートエリアの作成
 };
 
@@ -121,4 +131,9 @@ console.assert(
   数値の NaN (非数という、数値にできないことを意味する特殊な値)
 
   このように if や while の条件式に与えた時、 true になる値のことを truthy な値、 false になる値のことを falsy な値と呼ぶ。
+
+■ まとめ
+  ＊ES6では、アロー関数を用いて無名関数を簡単に書くことができる。
+  ＊if や while では論理値以外を受け取って、true や false と解釈できる。
+  ＊関数を使って処理をまとめ、関数名をつけることで、複雑な処理をわかりやすくできる。
 */
