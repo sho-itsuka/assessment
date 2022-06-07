@@ -33,6 +33,7 @@ assessmentButton.onclick = () => {
 
   tweetDivided.appendChild(anchor);
 
+  // widgets.jsが作動し、ただのリンクで表示されていた部分が、Twitterのボタンのような見た目になる
   const script = document.createElement('script');
   script.setAttribute('src', 'https://platform.twitter.com/widgets.js');
   tweetDivided.appendChild(script);
@@ -149,4 +150,24 @@ console.assert(
   ＊ES6では、アロー関数を用いて無名関数を簡単に書くことができる。
   ＊if や while では論理値以外を受け取って、true や false と解釈できる。
   ＊関数を使って処理をまとめ、関数名をつけることで、複雑な処理をわかりやすくできる。
+
+■ URI(Uniform Resource Identifier)
+  インターネット上等にある情報やサービスを一意に識別するためのデータ形式。
+  インターネット上の場所に限定したものとして、URLと呼ぶこともある。
+
+■ URI の各箇所の名前
+  https://twitter.com/intent/tweet?button_hashtag=あなたのいいところ&ref_src=twsrc%5Etfw
+  
+  ・https の部分は、URI のスキーム
+  ・twitter.com の部分は、ホスト名
+  ・/intent/tweet の部分は、リソース名
+  ・? 以降の部分は、クエリ
+
+■ URI エンコード
+  URI のクエリに含めることのできない文字のために、それらの文字を % という文字から始まる16進数で表現して含めるようにするための変換方法。
+  JavaScript では、下記のような変換・復元が可能。
+    encodeURIComponent('あ');  // encodeURIComponent 関数で文字列をURIエンコードされたものへ変換
+    > "%E3%81%82"
+    decodeURIComponent('%E3%81%82');  // decodeURIComponent 関数でURIエンコードされた文字列から元のものへ復元
+    > "あ"
 */
