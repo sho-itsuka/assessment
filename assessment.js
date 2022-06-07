@@ -3,8 +3,14 @@ const userNameInput = document.getElementById('user-name');
 const assessmentButton = document.getElementById('assessment');
 const resultDivided = document.getElementById('result-area');
 const tweetDivided = document.getElementById('tweet-area');
+
 assessmentButton.onclick = () => {
-  console.log('ボタンが押されました');
+  const userName = userNameInput.value;
+  if (userName.length === 0) {
+    // 名前が空の時は処理を終了する
+    return;
+  }
+  console.log(userName);
   //TODO 診断結果表示エリアの作成
   //TODO ツイートエリアの作成
 };
@@ -91,4 +97,28 @@ console.assert(
 
 ■ console.assert
   関数が正しく動いているかテストできる。
+
+■ return;
+  関数処理の中で、戻り値なしにそこで処理が終了するという意味。
+
+■ ガード句
+  特定の処理の際に、処理を終了させるような処理のこと。
+  (ex)
+    if (userName.length === 0) {
+      //名前が空の時は処理を終了する
+      return;
+    }
+
+■ JavaScriptの論理評価
+  JavaScript で if や while で受け取る値は、true 以外の値でもほとんどの場合 true と評価される。
+  しかし、true ではなく false と評価される値もある(下記参照)。
+
+  false
+  null
+  undefined
+  空文字列 ''
+  数値の 0
+  数値の NaN (非数という、数値にできないことを意味する特殊な値)
+
+  このように if や while の条件式に与えた時、 true になる値のことを truthy な値、 false になる値のことを falsy な値と呼ぶ。
 */
