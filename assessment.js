@@ -33,15 +33,17 @@ function assessment(userName) {
 
   // 文字のコード番号の合計を回答の数で割って添字の数値を求める
   const index = sumOfCharCode % answers.length;
-  const result = answers[index];
-
-  // TODO {userName} をユーザの名前に置き換える
+  let result = answers[index];
+  result = result.replaceAll('{userName}', userName);
   return result;
 }
 
-console.log(assessment('太郎'));
-console.log(assessment('次郎'));
-console.log(assessment('太郎'));
+// テストコード
+console.assert(
+  assessment('太郎') ===
+    '太郎のいいところは決断力です。太郎がする決断にいつも助けられる人がいます。',
+  '診断結果の文言の特定の部分を名前に置き換える処理が正しくありません。'
+);
 
 
 /*
