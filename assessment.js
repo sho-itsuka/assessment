@@ -4,6 +4,13 @@ const assessmentButton = document.getElementById('assessment');
 const resultDivided = document.getElementById('result-area');
 const tweetDivided = document.getElementById('tweet-area');
 
+// Enter を押して診断できるよう実装
+userNameInput.onkeydown = event => {
+  if (event.key === 'Enter') {
+    assessmentButton.onclick();
+  }
+};
+
 assessmentButton.onclick = () => {
   const userName = userNameInput.value;
   if (userName.length === 0) {
@@ -77,7 +84,7 @@ function assessment(userName) {
   // 文字のコード番号の合計を回答の数で割って添字の数値を求める
   const index = sumOfCharCode % answers.length;
   let result = answers[index];
-  
+
   result = result.replaceAll('{userName}', userName);
   return result;
 }
