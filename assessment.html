@@ -17,12 +17,23 @@
   </head>
 
   <body>
-    <h1>あなたのいいところは？</h1>
-    <p>診断したい名前を入れてください</p>
-    <input type="text" id="user-name" size="40" maxlength="20"> 
-    <button id="assessment">診断する</button>
-    <div id="result-area"></div>
-    <div id="tweet-area"></div>
+    <header>
+      <nav class="navbar navbar-dark bg-dark">  <!-- navbar は、Navbar スタイルを使うことを宣言するclass -->
+        <div class="container-fluid">. <!-- container-fluid は、Bootstrap デザインにおいて外枠の範囲を決めるclass。-fluid がついている場合、外枠が常に画面いっぱいに広がることを示します -->
+          <a class="navbar-brand" href="#">あなたのいいところ診断</a>. <!-- navbar-brand は、Navbar でテキストを追加する際に用いられるclass -->
+        </div>
+      </nav>
+    </header>
+    <div class="container pt-5"> <!-- container は外枠の範囲を決めるclass。画面一杯に広がる container-fluid と異なり、固定幅だが、画面サイズに応じて固定の長さが異なるため、画面からはみ出す心配はない。pt-5 は、padding を要素の上部に一定程度設定することを宣言するclass。数字の5はpadding の相対的な大きさを示している。詳細はspacing に記載。 -->
+      <h1>あなたのいいところは？</h1>
+      <p>診断したい名前を入れてください</p>
+      <div class="input-group mb-3" style="max-width: 500px"> <!-- input-group は、input group スタイルを使うことを宣言するclass。 mb-3 は、margin を要素のかぶに一定程度設定することを宣言するclass。数字の3はmargin の相対的な大きさを示している。 -->
+        <input type="text" class="form-control" id="user-name" size="40" maxlength="20" />. <!-- form-control は、<input> のようなテキスト入力フォームにスタイルを与えるclass -->
+        <button class="input-group-text" id="assessment">診断する</button>. <!-- input-group-text は、input group でテキストを追加する際に用いられるclass -->
+      </div>
+      <div id="result-area"></div>
+      <div id="tweet-area"></div>
+    </div>
     <script src="assessment.js"></script>
   </body>
 </html>
